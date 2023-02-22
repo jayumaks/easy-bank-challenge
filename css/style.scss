@@ -1,0 +1,140 @@
+@import "reset";
+@import "variables";
+@import "nav";
+@import "hero";
+@import "why-easybank";
+@import "latest-articles";
+@import "footer";
+
+:root {
+  max-width: 100vw;
+}
+
+body {
+  font-family: "Public Sans", sans-serif;
+  text-align: center;
+}
+h2,
+h3 {
+  font-weight: 400;
+  margin-bottom: 1rem;
+  color: $dark-blue;
+}
+h2 {
+  font-size: 2rem;
+  padding: 0 1.5rem;
+}
+h3 {
+  font-size: 1.15rem;
+}
+p {
+  color: $grayish-blue;
+}
+p, 
+ul li {
+  font-size: 1rem;
+}
+
+ul {
+  list-style: none;
+  padding-left: 0;
+}
+footer {
+  background-color: $dark-blue;
+}
+button:not(#menu) {
+  padding: 0.75rem 2rem;
+  border-radius: 9999px;
+  border: none;
+
+  color: white;
+  font-weight: 700;
+  background-color: transparent;
+  background-image: linear-gradient(to right, $lime-green, $bright-cyan);
+  &:active {
+    transform: translateY(1px);
+  }
+}
+button:not(#menu):hover {
+  cursor: pointer;
+  background-image: linear-gradient(to right, lighten($lime-green, 13%), lighten($bright-cyan, 13%));
+}
+
+.container {
+  max-width: $max-width;
+  margin: 0 auto;
+}
+.header__container,
+.why-easybank__text,
+.why-easybank__features,
+.latest-articles__container,
+.latest-articles > h2,
+.footer__container {
+  margin: auto;
+  max-width: $max-width;
+}
+header,
+.hero,
+.latest-articles,
+.why-easybank {
+  padding-left: 3rem;
+  padding-right: 3rem;
+}
+header {
+  margin: auto;
+  padding-left: 1.5rem;
+  padding-right: 1.5rem;
+  @media screen and (min-width: $tablet-breakpoint) {
+    padding-left: 3rem;
+    padding-right: 3rem;
+  }
+}
+
+.why-easybank__features,
+.latest-articles__container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 2rem;
+}
+
+@media screen and (min-width: $tablet-breakpoint) {
+  .latest-articles__container,
+  .why-easybank__features {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+@media screen and (min-width: $desktop-breakpoint) {
+  .latest-articles__container,
+  .why-easybank__features {
+    grid-template-columns: repeat(4, 1fr);
+  }
+  .feature {
+    text-align: left;
+    img {
+      margin-left: 0;
+    }
+  }
+}
+
+li > a {
+  text-decoration: none;
+  color: white;
+}
+
+
+@media screen and (min-width: $desktop-breakpoint) {
+  p {
+    font-size: 1.15rem;
+  }
+}
+
+// Hover Effects 
+li > a:hover,
+.article > h3:hover,
+.socials > li > img:hover {
+  cursor: pointer;
+  color: $lime-green;
+}
+.socials > li > img:hover {
+  filter: sepia(50%) saturate(4829%) hue-rotate(60deg) brightness(89%) contrast(83%);
+}

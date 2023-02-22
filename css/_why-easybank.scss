@@ -1,0 +1,51 @@
+@import "variables";
+
+.why-easybank {
+  background-color: $light-grayish-blue;
+  padding: 4rem 1rem;
+}
+
+.why-easybank__features {
+  margin-top: 2rem;
+}
+
+.why-easybank__features > .feature {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  margin: 2rem 0;
+}
+.why-easybank__features > .feature:last-of-type {
+  margin-bottom: 0;
+}
+
+.feature > img {
+  margin: 0 auto 1rem auto;
+}
+
+@media screen and (min-width: $tablet-breakpoint) {
+  .why-easybank {
+    text-align: left;
+  }
+  .why-easybank__text > h2 {
+    padding-left: 0;
+  }
+  .why-easybank__text > p {
+    max-width: 800px;
+  }
+  .why-easybank__text > p:first-of-type {
+    margin-bottom: 3rem;
+  }
+  .feature {
+    text-align: left;
+  }
+  .feature > img {
+    margin-left: 0;
+  }
+}
+
+@media screen and (min-width: $desktop-breakpoint) {
+  .why-easybank {
+    margin-top: -7.5rem;
+  } 
+}

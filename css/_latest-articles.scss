@@ -1,0 +1,59 @@
+@import "variables";
+
+.latest-articles {
+  background-color: $very-light-gray;
+  padding-top: 5rem;
+  padding-bottom: 3rem;
+}
+
+.latest-articles__container {
+  padding: 1.5rem 0;
+}
+.latest-articles__container > .article {
+  display: flex;
+  flex-direction: column;
+  text-align: left;
+  border-radius: 0.5rem;
+  overflow: hidden;
+  background-color: white;
+  padding-bottom: 1.5rem;
+  margin-bottom: 2rem;
+}
+.article > .article__image {
+  max-width: 100%;
+  height: 11rem;
+  margin-bottom: 1.5rem;
+  background-position: center;
+  background-size: auto cover;
+  background-repeat: no-repeat;
+}
+.article:nth-of-type(1) > .article__image {
+  background-image: url(/images/image-currency.jpg);
+}
+.article:nth-of-type(2) > .article__image {
+  background-image: url(/images/image-restaurant.jpg);
+}
+.article:nth-of-type(3) > .article__image {
+  background-image: url(/images/image-plane.jpg);
+}
+.article:nth-of-type(4) > .article__image {
+  background-image: url(/images/image-confetti.jpg);
+}
+.article *:not(.article__image) {
+  padding: 0 1.5rem;
+}
+.article > p:not(.author) {
+  margin-top: auto;
+  font-size: .9rem;
+}
+.article > p.author {
+  font-size: 0.75rem;
+  margin-bottom: .3rem;
+}
+
+@media screen and (min-width: $tablet-breakpoint) {
+  .latest-articles > h2 {
+    text-align: left;
+    padding-left: 0;
+  }
+}

@@ -1,0 +1,150 @@
+@import "variables";
+
+header {
+  background-color: $white;
+}
+// HEADER
+.header__container {
+  display: flex;
+  position: relative;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1.5rem 0;
+}
+header > img {
+  height: 1.5rem;
+}
+nav > ul > li > a {
+  color: #2D314D;
+  font-size: 1.2rem;
+}
+#menu {
+  $button: 2rem;
+  height: $button;
+  width: $button;
+  border: none;
+  background-color: transparent;
+  background-image: url("/images/icon-hamburger.svg");
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: center;
+  transition: 0.2s ease-in-out;
+}
+#menu.active {
+  background-image: url(/images/icon-close.svg);
+}
+
+// NAVBAR
+nav {
+  display: none;
+}
+header {
+  position: relative;
+  z-index: 1;
+}
+@media screen and (max-width: $desktop-breakpoint) {
+  button#menu.active + nav {
+    display: flex;
+    position: absolute;
+    background: white;
+    font-weight: 300;
+    width: 85vw;
+    max-width: 480px;
+    margin-left: auto;
+    margin-right: auto;
+    border-radius: 7px;
+    left: 50%;
+    top: 6rem;
+    transform: translateX(-50%);
+    font-size: 1.25rem;
+    padding: 3rem;
+  }
+  button#menu.active + nav ul li + li {
+    margin-top: 2rem;
+  }
+  button#menu.active + nav > ul {
+    margin: auto;
+  }
+}
+@media screen and (max-width: $desktop-breakpoint) {
+  .header__container > button:not(#menu) {
+    display: none;
+  }
+}
+
+// MENU BACKGROUND FILTER
+.nav-bg {
+  display: none;
+}
+@media screen and (max-width: $desktop-breakpoint) {
+  .nav-bg.active {
+    display: inline;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-image: linear-gradient(
+      to bottom,
+      rgba($dark-blue, 0.8),
+      rgba($dark-blue, 0)
+    );
+    z-index: 1;
+  }
+  nav,
+  header {
+    z-index: 2;
+  }
+}
+
+// DESKTOP NAVBAR
+@media screen and (min-width: $desktop-breakpoint) {
+  body {
+    // If screen width changes while active we still need to be able to scroll
+    height: unset !important;
+    overflow-y: unset !important;
+  }
+  #menu {
+    display: none;
+  }
+  nav,
+  nav > ul {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  nav > ul > li {
+    position: relative;
+  }
+  nav > ul > li > a {
+    color: $grayish-blue;
+    &:hover {
+      color: black;
+    }
+    &::after {
+      left: 0;
+      bottom: -2rem;
+      content: "";
+      height: 4px;
+      width: 0;
+      position: absolute;
+      background-image: linear-gradient(to right, $lime-green, $bright-cyan);
+      transition: ease-in-out .12s;
+    }
+    &:hover::after {
+      width: 100%;
+    }
+  }
+  nav > ul {
+    flex-direction: row;
+    margin: 0;
+    gap: 0 1rem;
+  }
+  nav > ul > li {
+    margin: 0 auto;
+    // opacity: 0.6;
+  }
+  header > button {
+    display: inline;
+  }
+}
